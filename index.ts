@@ -14,20 +14,20 @@ export default function (opts: { text: string; botId: string; chatId: number }) 
             try {
               const answer = JSON.parse(data)
               if (!answer.ok) return reject(new Error('wrong answer from telegram'))
-              resolve({ ok: true })
+              return resolve({ ok: true })
             } catch (err) {
               console.error('malformed answer')
-              reject(err)
+              return reject(err)
             }
           })
         })
         .on('error', err => {
           console.log('Error: ' + err.message)
-          reject(err)
+          return reject(err)
         })
     } catch (err) {
       console.error(err)
-      reject(err)
+      return reject(err)
     }
   })
 }
