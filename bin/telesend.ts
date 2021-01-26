@@ -12,26 +12,31 @@ console.log('--- START SEND TELEGRAM MESSAGE ---')
 try {
   const appConfigFile = path.join(os.homedir(), '.telegrammessagebot')
   let config: {
-    chatId: number
+    currentChatId: number
     botId: string
+    chats: string[]
+    username: string
   }
   try {
     config = JSON.parse(fs.readFileSync(appConfigFile, 'utf-8'))
   } catch (err) {
     config = {
-      chatId: 0,
-      botId: ''
+      currentChatId: 0,
+      botId: '',
+      chats: [],
+      username: ''
     }
     fs.writeFileSync(appConfigFile, JSON.stringify(config, null, 2))
   }
 
   if (!config.botId) throw new Error('botId not configured')
-  if (!config.chatId) throw new Error('chatId not configured')
+  if (!config.currentChatId) throw new Error('chatId not configured')
+  if (!config.username) throw new Error('username not configured')
 
   const lastArgv = process.argv.filter(f => !f.includes('/'))
-  const text = lastArgv[lastArgv.length - 1]
+  const text = '[' + config.username + ']: ' + lastArgv[lastArgv.length - 1]
   const botId = config.botId
-  const chatId = config.chatId
+  const chatId = config.currentChatId
 
   console.log('text: ' + text)
   console.log('botId: ' + botId)

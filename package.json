@@ -12,7 +12,8 @@
     "release:major": "npm version major && git push && git push --tags"
   },
   "bin": {
-    "telesend": "./bin/telesend.js"
+    "telesend": "./bin/telesend.js",
+    "switchtelesend": "./bin/switchChat.js"
   },
   "repository": {
     "type": "git",
