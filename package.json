@@ -1,0 +1,36 @@
+{
+  "name": "send-message-by-bot",
+  "version": "0.0.1",
+  "description": "Send MEssages to Telegram Chats By Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "tsc",
+    "watch-ts": "tsc -w",
+    "release:patch": "npm version patch && git push && git push --tags",
+    "release:minor": "npm version minor && git push && git push --tags",
+    "release:major": "npm version major && git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dottgonzo/send-message-by-bot.git"
+  },
+  "keywords": [
+    "telegram",
+    "messages"
+  ],
+  "author": "Dario Caruso",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dottgonzo/send-message-by-bot/issues"
+  },
+  "homepage": "https://github.com/dottgonzo/send-message-by-bot#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "prettier": "^2.2.1",
+    "prettier-plugin-organize-imports": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
