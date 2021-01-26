@@ -1,6 +1,6 @@
 import sendTelegramMessage from '.'
 
-console.log(process.argv)
+// console.log(process.argv)
 
 console.log('--- START SEND TELEGRAM MESSAGE ---')
 
