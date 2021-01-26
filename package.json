@@ -1,6 +1,6 @@
 {
   "name": "send-message-by-bot",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Send MEssages to Telegram Chats By Bot",
   "main": "index.js",
   "scripts": {
