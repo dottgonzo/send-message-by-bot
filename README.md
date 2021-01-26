@@ -1,4 +1,4 @@
 
 
 
-to send a message do: node run MESSAGE BOT_ID CHAT_ID
+to send a message do: node send MESSAGE BOT_ID CHAT_ID
