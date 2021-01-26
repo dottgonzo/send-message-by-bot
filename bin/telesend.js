@@ -20,8 +20,7 @@ try {
         config = {
             currentChatId: 0,
             botId: '',
-            chats: [],
-            username: ''
+            chats: []
         };
         fs_1.default.writeFileSync(appConfigFile, JSON.stringify(config, null, 2));
     }
@@ -29,10 +28,8 @@ try {
         throw new Error('botId not configured');
     if (!config.currentChatId)
         throw new Error('chatId not configured');
-    if (!config.username)
-        throw new Error('username not configured');
     const lastArgv = process.argv.filter(f => !f.includes('/'));
-    const text = '[' + config.username + ']: ' + lastArgv[lastArgv.length - 1];
+    const text = '[' + os_1.default.userInfo().username + '@' + os_1.default.hostname + ']: ' + lastArgv[lastArgv.length - 1];
     const botId = config.botId;
     const chatId = config.currentChatId;
     console.log('text: ' + text);

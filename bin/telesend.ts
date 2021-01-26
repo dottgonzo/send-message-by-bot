@@ -15,7 +15,6 @@ try {
     currentChatId: number
     botId: string
     chats: string[]
-    username: string
   }
   try {
     config = JSON.parse(fs.readFileSync(appConfigFile, 'utf-8'))
@@ -23,18 +22,16 @@ try {
     config = {
       currentChatId: 0,
       botId: '',
-      chats: [],
-      username: ''
+      chats: []
     }
     fs.writeFileSync(appConfigFile, JSON.stringify(config, null, 2))
   }
 
   if (!config.botId) throw new Error('botId not configured')
   if (!config.currentChatId) throw new Error('chatId not configured')
-  if (!config.username) throw new Error('username not configured')
 
   const lastArgv = process.argv.filter(f => !f.includes('/'))
-  const text = '[' + config.username + ']: ' + lastArgv[lastArgv.length - 1]
+  const text = '[' + os.userInfo().username + '@'+os.hostname+']: ' + lastArgv[lastArgv.length - 1]
   const botId = config.botId
   const chatId = config.currentChatId
 
