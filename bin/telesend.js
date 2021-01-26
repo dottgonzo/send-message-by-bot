@@ -48,21 +48,22 @@ try {
             console.log('message sent!');
             console.log('response:', data);
             console.log('--- END SEND TELEGRAM MESSAGE OK ---');
+            process.exit(0);
         })
             .catch(err => {
             console.error('error on sending message!!!');
             console.error(err);
             console.log('--- END SEND TELEGRAM MESSAGE ERROR ---');
+            process.exit(1);
         });
-        rl.close();
     });
     rl.on('error', function (err) {
         console.error(err);
-        process.exit(0);
+        process.exit(1);
     });
     rl.on('close', function () {
         console.log('\nBYE BYE !!!');
-        process.exit(0);
+        process.exit(2);
     });
 }
 catch (err) {
