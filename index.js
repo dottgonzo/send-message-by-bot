@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const https = require('https');
 function default_1(opts) {
     return new Promise((resolve, reject) => {
-        if (!opts || !opts?.botId || !opts?.chatId || !opts?.text)
+        if (!opts || !(opts === null || opts === void 0 ? void 0 : opts.botId) || !(opts === null || opts === void 0 ? void 0 : opts.chatId) || !(opts === null || opts === void 0 ? void 0 : opts.text))
             return reject(new Error('all params are required'));
         try {
             https
