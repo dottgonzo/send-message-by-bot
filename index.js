@@ -17,7 +17,7 @@ function default_1(opts) {
                         const answer = JSON.parse(data);
                         if (!answer.ok)
                             return reject(new Error('wrong answer from telegram'));
-                        return resolve({ ok: true });
+                        return resolve(answer);
                     }
                     catch (err) {
                         console.error('malformed answer');

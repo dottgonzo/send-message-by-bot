@@ -14,8 +14,9 @@ console.log('text: ' + text);
 console.log('botId: ' + botId);
 console.log('chatId: ' + chatId);
 _1.default({ text, botId, chatId })
-    .then(a => {
+    .then(data => {
     console.log('message sent');
+    console.log(data);
     console.log('--- END SEND TELEGRAM MESSAGE ---');
 })
     .catch(err => {

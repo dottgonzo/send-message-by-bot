@@ -14,8 +14,10 @@ console.log('botId: ' + botId)
 console.log('chatId: ' + chatId)
 
 sendTelegramMessage({ text, botId, chatId })
-  .then(a => {
+  .then(data => {
     console.log('message sent')
+    console.log(data)
+    
     console.log('--- END SEND TELEGRAM MESSAGE ---')
   })
   .catch(err => {
