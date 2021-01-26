@@ -11,6 +11,9 @@
     "release:minor": "npm version minor && git push && git push --tags",
     "release:major": "npm version major && git push && git push --tags"
   },
+  "bin": {
+    "telesend": "./bin/telesend.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dottgonzo/send-message-by-bot.git"
