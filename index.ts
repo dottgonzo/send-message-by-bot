@@ -1,3 +1,5 @@
+import { IncomingMessage } from "http"
+
 const https = require('https')
 
 export interface ITelegramSendTextToChatResponse {
@@ -26,9 +28,9 @@ export default function (opts: { text: string; botId: string; chatId: number }) 
     if (!opts || !opts?.botId || !opts?.chatId || !opts?.text) return reject(new Error('all params are required'))
     try {
       https
-        .get(`https://api.telegram.org/bot${opts.botId}/sendMessage?chat_id=${opts.chatId}&text=${opts.text}`, resp => {
+        .get(`https://api.telegram.org/bot${opts.botId}/sendMessage?chat_id=${opts.chatId}&text=${opts.text}`, (resp:IncomingMessage) => {
           let data = ''
-          resp.on('data', chunk => {
+          resp.on('data', (chunk: string) => {
             data += chunk
           })
           resp.on('end', () => {
@@ -37,12 +39,12 @@ export default function (opts: { text: string; botId: string; chatId: number }) 
               if (!answer.ok) return reject(new Error('wrong answer from telegram'))
               return resolve(answer)
             } catch (err) {
-              console.error('malformed answer')
+              console.error('malformed answer', data)
               return reject(err)
             }
           })
         })
-        .on('error', err => {
+        .on('error', (err: Error) => {
           console.log('Error: ' + err.message)
           return reject(err)
         })

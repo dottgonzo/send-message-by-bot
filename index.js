@@ -7,9 +7,9 @@ function default_1(opts) {
             return reject(new Error('all params are required'));
         try {
             https
-                .get(`https://api.telegram.org/bot${opts.botId}/sendMessage?chat_id=${opts.chatId}&text=${opts.text}`, resp => {
+                .get(`https://api.telegram.org/bot${opts.botId}/sendMessage?chat_id=${opts.chatId}&text=${opts.text}`, (resp) => {
                 let data = '';
-                resp.on('data', chunk => {
+                resp.on('data', (chunk) => {
                     data += chunk;
                 });
                 resp.on('end', () => {
@@ -20,12 +20,12 @@ function default_1(opts) {
                         return resolve(answer);
                     }
                     catch (err) {
-                        console.error('malformed answer');
+                        console.error('malformed answer', data);
                         return reject(err);
                     }
                 });
             })
-                .on('error', err => {
+                .on('error', (err) => {
                 console.log('Error: ' + err.message);
                 return reject(err);
             });

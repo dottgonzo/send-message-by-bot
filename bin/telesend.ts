@@ -38,7 +38,7 @@ try {
 
   const currentChat = config.chats.find(f => f.chatId === config.currentChatId)
 
-  rl.question('(' + currentChat.label + ') TEXT: ', function (txt) {
+  rl.question('(' + currentChat.label + ') TEXT: ', function (txt: string) {
     console.log('--- START SEND TELEGRAM MESSAGE ---')
 
     lastArgv = txt
@@ -69,7 +69,7 @@ try {
       })
   })
 
-  rl.on('error', function (err) {
+  rl.on('error', function (err: Error) {
     console.error(err)
     process.exit(1)
   })

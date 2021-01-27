@@ -5,6 +5,7 @@
 
     "sourceMap": true,
     "strict": false,
+    "noImplicitAny": true,
 
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
