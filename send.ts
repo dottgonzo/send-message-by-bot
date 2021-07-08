@@ -5,10 +5,9 @@ import sendTelegramMessage from '.'
 console.log('--- START SEND TELEGRAM MESSAGE ---')
 
 try {
-  const lastArgv = process.argv.filter(f => !f.includes('/'))
-  const text = lastArgv[0]
-  const botId = lastArgv[1]
-  const chatId = Number(lastArgv[2])
+  const text = process.argv[2]
+  const botId = process.argv[3]
+  const chatId = Number(process.argv[4])
 
   console.log('text: ' + text)
   console.log('botId: ' + botId)
